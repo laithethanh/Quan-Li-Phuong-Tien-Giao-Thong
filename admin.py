@@ -116,6 +116,27 @@ menu_DSViPham = Button(
 )
 menu_DSViPham.pack(fill=X, pady=2)
 
+base_dirNhanDienBienSo = os.path.dirname(__file__)
+image_patrNhanDienBienSo = os.path.join(base_dirNhanDienBienSo, "IconMenu", "camera.png")
+original_image_NhanDienBienSo = Image.open(image_patrNhanDienBienSo)
+resized_image_NhanDienBienSo = original_image_NhanDienBienSo.resize((30, 30))
+iconNhanDienBienSo = ImageTk.PhotoImage(resized_image_NhanDienBienSo)
+menu_NhanDienBienSo = Button(
+    menu_frame,
+    text="Nhận diện biển số xe",
+    font=("Arial", 12, "bold"),
+    bg="#e0f7fa",
+    bd=0,
+    anchor=W,
+    padx=10,
+    pady=5,
+    borderwidth=5,
+    image=iconNhanDienBienSo,
+    compound=LEFT,
+    command=lambda: showContent("Nhận diện biển số xe"),
+)
+menu_NhanDienBienSo.pack(fill=X, pady=2)
+
 content_frame = Frame(root, bg="white")
 content_frame.pack(fill=BOTH, expand=True)
 title_name_menu_lable = Label(
