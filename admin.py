@@ -1,5 +1,6 @@
 from tkinter import *
 from PIL import Image, ImageTk
+import os
 
 root = Tk()
 screen_width = root.winfo_screenwidth()
@@ -26,9 +27,9 @@ menu_lable = Label(
 )
 menu_lable.pack(pady=10)
 
-original_image_TrangChu = Image.open(
-    r"C:\Users\lai the thanh\Desktop\PYTHON\Quan-Li-Phuong-Tien-Giao-Thong\IconMenu\homePage.png"
-)
+base_dirTrangChu = os.path.dirname(__file__)
+image_pathTrangChu = os.path.join(base_dirTrangChu, "IconMenu", "homePage.png")
+original_image_TrangChu = Image.open(image_pathTrangChu)
 resized_image_TrangChu = original_image_TrangChu.resize((30, 30))
 iconTrangChu = ImageTk.PhotoImage(resized_image_TrangChu)
 menu_TrangChu = Button(
@@ -48,7 +49,14 @@ menu_TrangChu = Button(
 )
 menu_TrangChu.pack(fill=X, pady=2)
 
-menu_TraCuu = Button(
+base_dirQuanLiPhuongTien = os.path.dirname(__file__)
+image_pathQuanLiPhuongTien = os.path.join(
+    base_dirQuanLiPhuongTien, "IconMenu", "managermentVehicle.png"
+)
+original_image_QuanLiPhuongTien = Image.open(image_pathQuanLiPhuongTien)
+resized_image_QuanLiPhuongTien = original_image_QuanLiPhuongTien.resize((30, 30))
+iconQuanLiPhuongTien = ImageTk.PhotoImage(resized_image_QuanLiPhuongTien)
+menu_QuanLiPhuongTien = Button(
     menu_frame,
     text="Quản lí phương tiện",
     font=("Arial", 12, "bold"),
@@ -59,10 +67,17 @@ menu_TraCuu = Button(
     padx=10,
     pady=5,
     borderwidth=5,
+    image=iconQuanLiPhuongTien,
+    compound=LEFT,
     command=lambda: showContent("Quản lí phương tiện"),
 )
-menu_TraCuu.pack(fill=X, pady=2)
+menu_QuanLiPhuongTien.pack(fill=X, pady=2)
 
+base_dirTaiKhoan = os.path.dirname(__file__)
+image_pathTaiKhoan = os.path.join(base_dirTaiKhoan, "IconMenu", "account.png")
+original_image_TaiKhoan = Image.open(image_pathTaiKhoan)
+resized_image_TaiKhoan = original_image_TaiKhoan.resize((30, 30))
+iconTaiKhoan = ImageTk.PhotoImage(resized_image_TaiKhoan)
 menu_TaiKhoan = Button(
     menu_frame,
     text="Tài khoản",
@@ -74,21 +89,29 @@ menu_TaiKhoan = Button(
     padx=10,
     pady=5,
     borderwidth=5,
+    image=iconTaiKhoan,
+    compound=LEFT,
     command=lambda: showContent("Tài khoản"),
 )
 menu_TaiKhoan.pack(fill=X, pady=2)
 
+base_dirDanhSachViPham = os.path.dirname(__file__)
+image_patrDanhSachViPham = os.path.join(base_dirDanhSachViPham, "IconMenu", "list.png")
+original_image_DanhSachViPham = Image.open(image_patrDanhSachViPham)
+resized_image_DanhSachViPham = original_image_DanhSachViPham.resize((30, 30))
+iconDanhSachViPham = ImageTk.PhotoImage(resized_image_DanhSachViPham)
 menu_DSViPham = Button(
     menu_frame,
     text="Danh sách vi phạm",
     font=("Arial", 12, "bold"),
     bg="#e0f7fa",
-    width=25,
     bd=0,
     anchor=W,
     padx=10,
     pady=5,
     borderwidth=5,
+    image=iconDanhSachViPham,
+    compound=LEFT,
     command=lambda: showContent("Danh sách vi phạm"),
 )
 menu_DSViPham.pack(fill=X, pady=2)
