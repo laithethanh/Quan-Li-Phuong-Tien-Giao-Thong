@@ -1,6 +1,11 @@
 from tkinter import *
 from PIL import Image, ImageTk
 import os
+from trangChu import TrangChu
+from quanLiPhuongTien import QuanLiPhuongTien
+from taiKhoan import TaiKhoan
+from danhSachViPham import DanhSachViPham
+from nhanDienBienSoXe import NhanDienBienSoXe
 
 root = Tk()
 screen_width = root.winfo_screenwidth()
@@ -157,6 +162,7 @@ title_name_menu_lable = Label(
     relief=RAISED,
 )
 title_name_menu_lable.pack(fill=X)
+TrangChu.them_giao_dien(content_frame)
 
 
 # Hàm thực hiện hiển thị trang tương ứng khi nhấn vào button menu
@@ -176,6 +182,16 @@ def showContent(item):
         relief=RAISED,
     )
     title_name_menu_lable.pack(fill=X)
+    if item == "Trang chủ":
+        TrangChu.them_giao_dien(content_frame)
+    elif item == "Quản lí phương tiện":
+        QuanLiPhuongTien.them_giao_dien(content_frame)
+    elif item == "Tài khoản":
+        TaiKhoan.them_giao_dien(content_frame)
+    elif item == "Danh sách vi phạm":
+        DanhSachViPham.them_giao_dien(content_frame)
+    elif item == "Nhận diện biển số xe":
+        NhanDienBienSoXe.them_giao_dien(content_frame)
 
 
 root.mainloop()
