@@ -9,6 +9,7 @@ root.title("ADMIN")
 root.geometry(f"{screen_width}x{screen_height}")
 root.configure(bg="white")
 
+# Khung tiêu đề của hệ thống
 maintheme_frame = Frame(root, bg="white")
 maintheme_frame.pack(fill=BOTH, expand=False)
 maintheme_lable = Label(
@@ -20,6 +21,7 @@ maintheme_lable = Label(
 )
 maintheme_lable.pack(pady=10)
 
+# Khung chứa menu
 menu_frame = Frame(root, bg="#e0f7fa")
 menu_frame.pack(side=LEFT, fill=Y, anchor=NW, padx=0, pady=0)
 menu_lable = Label(
@@ -27,8 +29,9 @@ menu_lable = Label(
 )
 menu_lable.pack(pady=10)
 
+# Thêm các button và icon vào khung menu
 base_dirTrangChu = os.path.dirname(__file__)
-image_pathTrangChu = os.path.join(base_dirTrangChu, "IconMenu", "homePage.png")
+image_pathTrangChu = os.path.join(base_dirTrangChu, "..", "IconMenu", "homePage.png")
 original_image_TrangChu = Image.open(image_pathTrangChu)
 resized_image_TrangChu = original_image_TrangChu.resize((30, 30))
 iconTrangChu = ImageTk.PhotoImage(resized_image_TrangChu)
@@ -51,7 +54,7 @@ menu_TrangChu.pack(fill=X, pady=2)
 
 base_dirQuanLiPhuongTien = os.path.dirname(__file__)
 image_pathQuanLiPhuongTien = os.path.join(
-    base_dirQuanLiPhuongTien, "IconMenu", "managermentVehicle.png"
+    base_dirQuanLiPhuongTien, "..", "IconMenu", "managermentVehicle.png"
 )
 original_image_QuanLiPhuongTien = Image.open(image_pathQuanLiPhuongTien)
 resized_image_QuanLiPhuongTien = original_image_QuanLiPhuongTien.resize((30, 30))
@@ -74,7 +77,7 @@ menu_QuanLiPhuongTien = Button(
 menu_QuanLiPhuongTien.pack(fill=X, pady=2)
 
 base_dirTaiKhoan = os.path.dirname(__file__)
-image_pathTaiKhoan = os.path.join(base_dirTaiKhoan, "IconMenu", "account.png")
+image_pathTaiKhoan = os.path.join(base_dirTaiKhoan, "..", "IconMenu", "account.png")
 original_image_TaiKhoan = Image.open(image_pathTaiKhoan)
 resized_image_TaiKhoan = original_image_TaiKhoan.resize((30, 30))
 iconTaiKhoan = ImageTk.PhotoImage(resized_image_TaiKhoan)
@@ -96,7 +99,9 @@ menu_TaiKhoan = Button(
 menu_TaiKhoan.pack(fill=X, pady=2)
 
 base_dirDanhSachViPham = os.path.dirname(__file__)
-image_patrDanhSachViPham = os.path.join(base_dirDanhSachViPham, "IconMenu", "list.png")
+image_patrDanhSachViPham = os.path.join(
+    base_dirDanhSachViPham, "..", "IconMenu", "list.png"
+)
 original_image_DanhSachViPham = Image.open(image_patrDanhSachViPham)
 resized_image_DanhSachViPham = original_image_DanhSachViPham.resize((30, 30))
 iconDanhSachViPham = ImageTk.PhotoImage(resized_image_DanhSachViPham)
@@ -117,7 +122,9 @@ menu_DSViPham = Button(
 menu_DSViPham.pack(fill=X, pady=2)
 
 base_dirNhanDienBienSo = os.path.dirname(__file__)
-image_patrNhanDienBienSo = os.path.join(base_dirNhanDienBienSo, "IconMenu", "camera.png")
+image_patrNhanDienBienSo = os.path.join(
+    base_dirNhanDienBienSo, "..", "IconMenu", "camera.png"
+)
 original_image_NhanDienBienSo = Image.open(image_patrNhanDienBienSo)
 resized_image_NhanDienBienSo = original_image_NhanDienBienSo.resize((30, 30))
 iconNhanDienBienSo = ImageTk.PhotoImage(resized_image_NhanDienBienSo)
@@ -137,6 +144,7 @@ menu_NhanDienBienSo = Button(
 )
 menu_NhanDienBienSo.pack(fill=X, pady=2)
 
+# Hiển thị măc định trang chủ khi chương trình chạy
 content_frame = Frame(root, bg="white")
 content_frame.pack(fill=BOTH, expand=True)
 title_name_menu_lable = Label(
@@ -151,6 +159,7 @@ title_name_menu_lable = Label(
 title_name_menu_lable.pack(fill=X)
 
 
+# Hàm thực hiện hiển thị trang tương ứng khi nhấn vào button menu
 def showContent(item):
     global content_frame
     if content_frame:
