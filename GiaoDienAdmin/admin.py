@@ -1,11 +1,24 @@
 from tkinter import *
+from tkinter import messagebox
 from PIL import Image, ImageTk
+import sys
 import os
 from trangChu import TrangChu
 from quanLiPhuongTien import QuanLiPhuongTien
 from taiKhoan import TaiKhoan
 from danhSachViPham import DanhSachViPham
 from nhanDienBienSoXe import NhanDienBienSoXe
+
+# Import các file trong Quan-Li-Phuong-Tien-Giao-Thong
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from Database.connectDatabase import ConnectDatabase
+# Import các file trong Login_SignUp
+sys.path.append(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Login_SignUp"))
+)
+from Login_SignUp.login import Login
+
+# from Login_SignUp.signUp import SignUp
 
 root = Tk()
 screen_width = root.winfo_screenwidth()
@@ -20,7 +33,7 @@ maintheme_frame.pack(fill=BOTH, expand=False)
 maintheme_lable = Label(
     maintheme_frame,
     text="NHẬN DIỆN BIỂN SỐ VÀ BẮN TỐC ĐỘ",
-    font=("Arial,", 40, "bold"),
+    font=("Arial", 40, "bold"),
     bg="white",
     fg="red",
 )
@@ -194,4 +207,14 @@ def showContent(item):
         NhanDienBienSoXe.them_giao_dien(content_frame)
 
 
+def thoat_chuong_trinh():
+    if messagebox.askokcancel("Thoát", "Bạn có muốn thoát chương trình không?"):
+        root.destroy()
+
+
+root.protocol("WM_DELETE_WINDOW", thoat_chuong_trinh)
+
+passAdmin = False
+if passAdmin == False:
+    Login().giao_dien_login(root)
 root.mainloop()
